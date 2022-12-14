@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="main-layout">
+<body class="main-layout" onload="onInit()">
     <header class="main-header">
         <div class="header-container flex alien-center space-between">
             <section class="logo"><a href="#">MemeGENh</a></section>
             <nav class="main-nav">
                 <ul class="links-navs clean-list flex">
-                    <li><a href="#" class="link-nav flex alien-center">Gallery</a></li>
+                    <li><a href="#" class="link-nav flex alien-center">gallery</a></li>
+                    <li><a href="#" class="link-nav flex alien-center">saved</a></li>
                     <li><a href="#" class="link-nav flex alien-center">about</a></li>
                 </ul>
             </nav>
@@ -39,11 +40,16 @@
 
     </section>
 
-    <section class="meme-editor-container">
+    <div class="meme-editor-container flex alien-center hidden1" >
+        <div class="canvas-container" >
+            <canvas id="my-canvas" height="400px" width="400px"></canvas>
+        </div>
+        <div class="canvas-editor-container">
+            EDITOR
+        </div>
+    </div>
 
-    </section>
-
-    <section class="about">
+    <section class="about" hidden1>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis eum. Autem asperiores iure impedit
         voluptate magnam in, iusto officia dolores sapiente, debitis nulla. Ipsa voluptates dolorum sapiente possimus
         recusandae.
@@ -58,8 +64,8 @@
         <small>All Rights Reserved</small>
     </footer>
 
-    <script src="js/index-controller.js"></script>
-    <script src="js/service/index-controller.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/service/meme-service.js"></script>
 </body>
 
 </html>

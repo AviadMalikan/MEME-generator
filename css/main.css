@@ -29,6 +29,9 @@ body {
     padding: 0;
     list-style-type: none;
 }
+.hidden{
+    display: none;
+}
 
 
 /* header */
@@ -56,7 +59,7 @@ body {
     width: 100px;
     justify-content: center;
     /* border: 1px black solid; */
-    box-shadow: inset 0 -7px 0 rgb(97, 97, 97);
+    /* box-shadow: inset 0 -7px 0 rgb(97, 97, 97); */
     background-color: orange;
     transition: 0.4s;
 }
@@ -73,6 +76,19 @@ body {
     border-collapse: collapse;
 }
 
+
+/* Editor-containerr */
+.meme-editor-container {
+    justify-content: space-around;
+}
+
+canvas {
+    border: 10px black solid;
+}
+.canvas-editor-container{
+    width: 50%;
+}
+
 /* About */
 
 .about {
@@ -80,10 +96,11 @@ body {
     border: 1px black solid;
 }
 
-.social-media{
+.social-media {
     justify-content: center;
     margin: 10px;
 }
+
 /* Footer */
 
 footer {
