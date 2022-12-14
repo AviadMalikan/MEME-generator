@@ -6,20 +6,19 @@ let gCtx
 function onInit() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    onGetMeme(1)
+
     // renderCanvas()
-
-
     addListeners()
 }
 
-function renderCanvas() {
-    const elBody = document.body
-    // const elContainer = document.querySelector('canvas-editor-container')
-    // console.log('elContainer.offsetWidth: ', elContainer.offsetWidth)
-    // console.log('gElCanvas: ', gElCanvas)
+function renderMeme() {
+    const elContainer = document.querySelector('.meme-editor-container')
+    gElCanvas.width = elContainer.offsetWidth / 2
+    gElCanvas.height = elContainer.offsetHeight
 
-    gElCanvas.width = elBody.offsetWidth / 2
-    gElCanvas.height = elBody.offsetHeight / 2
+    const img = getCurrImg()
+    drawMeme(img)
 }
 
 
@@ -28,7 +27,7 @@ function addListeners() {
     addTouchListeners()
     //Listen for resize ev
     window.addEventListener('resize', () => {
-        renderCanvas()
+        renderMeme()
         // renderCanvas()
 
     })
@@ -47,8 +46,17 @@ function addTouchListeners() {
 }
 
 
-function onDrawImg(imgId) {
+function onGetMeme(imgId) {
     const img = getImgById(imgId)
-    drawImg(img)
-    drawText()
+    updateCurrImg(img)
+    drawMeme(img)
+    // drawText('OLA')
+    renderMeme()
+}
+
+function onEditText(val) {
+    console.log('val: ', val)
+    updateCurrText(val)
+    renderMeme()
+
 }

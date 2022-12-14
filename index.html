@@ -10,8 +10,8 @@
 </head>
 
 <body class="main-layout" onload="onInit()">
-    <header class="main-header">
-        <div class="header-container flex alien-center space-between">
+    <header class="main-header full">
+        <div class="header-container flex alien-center space-between ">
             <section class="logo"><a href="#">MemeGENh</a></section>
             <nav class="main-nav">
                 <ul class="links-navs clean-list flex">
@@ -40,16 +40,22 @@
 
     </section>
 
-    <div class="meme-editor-container flex alien-center hidden1" >
-        <div class="canvas-container" >
+    <div class="meme-editor-container flex alien-center hidden1">
+        <div class="canvas-container">
             <canvas id="my-canvas" height="400px" width="400px"></canvas>
         </div>
-        <div class="canvas-editor-container">
-            EDITOR
-        </div>
+        <section class="canvas-editor-container">
+            <h2>Editor</h2>
+            <div class="text-editor">
+                <label for="text-editor">
+                    Edit Text:
+                </label>
+                <input type="text" id="text-editor" placeholder="Enter Text here" onkeyup="onEditText(this.value)">
+            </div>
+        </section>
     </div>
 
-    <section class="about" hidden1>
+    <section class="about" hidden>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis eum. Autem asperiores iure impedit
         voluptate magnam in, iusto officia dolores sapiente, debitis nulla. Ipsa voluptates dolorum sapiente possimus
         recusandae.
@@ -60,7 +66,7 @@
         </ul>
     </section>
 
-    <footer>
+    <footer class="footer full">
         <small>All Rights Reserved</small>
     </footer>
 

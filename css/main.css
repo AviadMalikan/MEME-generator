@@ -29,18 +29,24 @@ body {
     padding: 0;
     list-style-type: none;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
 
 
 /* header */
+.main-layout>*:not(.full) {
+    max-width: 90%;
+    margin: 0 auto;
+}
 
 .main-header {
     background-color: orange;
 }
 
 .logo {
+    margin-inline-start: 10px;
     font-size: 2.5rem;
     color: #ffffff;
     text-decoration: none;
@@ -50,6 +56,7 @@ body {
 .main-header .main-nav li:not(:last-child) {
     margin-inline-end: 0px;
     border-collapse: collapse;
+    border-radius: 50px;
 }
 
 .link-nav {
@@ -58,10 +65,15 @@ body {
     height: 100px;
     width: 100px;
     justify-content: center;
+    text-transform: capitalize;
     /* border: 1px black solid; */
-    /* box-shadow: inset 0 -7px 0 rgb(97, 97, 97); */
     background-color: orange;
     transition: 0.4s;
+}
+
+.link-nav:hover {
+    box-shadow: inset 0 -7px 0 rgb(97, 97, 97);
+
 }
 
 /* Search Bar */
@@ -80,12 +92,21 @@ body {
 /* Editor-containerr */
 .meme-editor-container {
     justify-content: space-around;
+    border-radius: 20px;
+    height: 40vw;
+    background-color: rgb(240, 240, 240);
 }
 
 canvas {
-    border: 10px black solid;
+    display: block;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin: 0;
 }
-.canvas-editor-container{
+
+.canvas-editor-container {
+    border-radius: 10px;
+    border: 1px black solid;
     width: 50%;
 }
 
@@ -97,6 +118,7 @@ canvas {
 }
 
 .social-media {
+    text-transform: capitalize;
     justify-content: center;
     margin: 10px;
 }
