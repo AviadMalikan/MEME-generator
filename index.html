@@ -9,17 +9,22 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="main-layout" onload="onInit()">
+<body class="main-layout " onload="onInit()">
     <header class="main-header full">
         <div class="header-container flex alien-center space-between ">
-            <section class="logo"><a href="#">MemeGENh</a></section>
+
+            <section class="logo"><a href="#">
+                    <img src="img/LOGO.png" alt="MemeMaker!" onclick="onInit()"></a>
+            </section>
+
             <nav class="main-nav">
                 <ul class="links-navs clean-list flex">
-                    <li><a href="#" class="link-nav flex alien-center">gallery</a></li>
+                    <li><a href="#" class="link-nav flex alien-center" onclick="onInit()">gallery</a></li>
                     <li><a href="#" class="link-nav flex alien-center">saved</a></li>
                     <li><a href="#" class="link-nav flex alien-center">about</a></li>
                 </ul>
             </nav>
+
             <button class="menu-toggle-btn" hidden>☰</button>
         </div>
     </header>
@@ -36,21 +41,27 @@
         </ul>
     </section>
 
-    <section class="imgs-container">
-
+    <section class="imgs-container full">
     </section>
 
-    <div class="meme-editor-container flex alien-center hidden1">
+    <div class="meme-editor-container flex alien-center hidden">
         <div class="canvas-container">
             <canvas id="my-canvas" height="400px" width="400px"></canvas>
         </div>
         <section class="canvas-editor-container">
             <h2>Editor</h2>
             <div class="text-editor">
-                <label for="text-editor">
-                    Edit Text:
-                </label>
-                <input type="text" id="text-editor" placeholder="Enter Text here" onkeyup="onEditText(this.value)">
+                <div class="text-input-container">
+                    <input type="text" id="text-input" class="text-input" placeholder="Enter Text here"
+                        onkeyup="onSetLineTxt(this.value)">
+                </div>
+                <div class="edit-btns-container">
+                    <button class="change-line-btn edit-btn" onclick="onSetLine()"><img
+                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="add-btn edit-btn" onclick="onAddLine()"> <img src="icons/add.png" alt="add"></button>
+                    <button class="remove-btn edit-btn" onclick="onRemoveLine()"><img src="icons/trash.png"
+                            alt="del"></button>
+                </div>
             </div>
         </section>
     </div>
@@ -67,11 +78,15 @@
     </section>
 
     <footer class="footer full">
+
         <small>All Rights Reserved</small>
     </footer>
 
-    <script src="js/meme-controller.js"></script>
+    <script src="js/service/utils-service.js"></script>
+    <script src="js/service/gallery-service.js"></script>
     <script src="js/service/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/meme-controller.js"></script>
 </body>
 
 </html>

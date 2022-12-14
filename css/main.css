@@ -8,10 +8,12 @@ body {
     text-align: center;
 }
 
+img {
+    width: 100%;
+}
 
 /* HELPERS */
 
-/* @import "helpers.css"; */
 .flex {
     display: flex;
 }
@@ -34,6 +36,9 @@ body {
     display: none;
 }
 
+.main-layout {
+    height: 100%;
+}
 
 /* header */
 .main-layout>*:not(.full) {
@@ -43,13 +48,13 @@ body {
 
 .main-header {
     background-color: orange;
+    box-shadow: inset 0 -7px 0 rgb(255, 228, 159);
+    margin-bottom: 50px;
 }
 
 .logo {
-    margin-inline-start: 10px;
-    font-size: 2.5rem;
-    color: #ffffff;
-    text-decoration: none;
+    width: 200px;
+    margin-inline-start: 20px;
 }
 
 
@@ -68,19 +73,22 @@ body {
     text-transform: capitalize;
     /* border: 1px black solid; */
     background-color: orange;
-    transition: 0.4s;
+    box-shadow: inset 0 -7px 0 rgb(255, 228, 159);
+    transition: .3s;
 }
 
 .link-nav:hover {
-    box-shadow: inset 0 -7px 0 rgb(97, 97, 97);
-
+    box-shadow: inset 0 -7px 0 rgb(255 98 0);
 }
 
 /* Search Bar */
 
 
 .search-bar {
-    margin-bottom: 30px;
+    background-color: #fe6e20;
+    border-radius: 2rem;
+    padding: 20px 80px;
+    margin-bottom: 50px;
 }
 
 .search-bar .search-tag li:not(:last-child) {
@@ -88,26 +96,66 @@ body {
     border-collapse: collapse;
 }
 
+/* IMG Container */
+.imgs-container {
+    margin: 50px auto;
+    width: 90%;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(5, 1fr);
+}
 
-/* Editor-containerr */
+.imgs-container img {
+    border-radius: 5PX;
+    transition: .3s;
+    border: 0px orange solid;
+    opacity: 80%;
+}
+
+.imgs-container img:hover {
+    /* border: 1px orange solid; */
+    cursor: pointer;
+    opacity: 100%;
+    box-shadow: 0px 1px 20px orange;
+}
+
+
+/* Editor-container */
 .meme-editor-container {
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 20px;
-    height: 40vw;
-    background-color: rgb(240, 240, 240);
+    height: 50vw;
+    /* width: 100vw; */
+    /* background-color: rgb(240, 240, 240); */
 }
 
 canvas {
     display: block;
-    border: 1px black solid;
-    border-radius: 10px;
-    margin: 0;
+    /* border: 1px black solid; */
+    border-radius: 5px;
+    margin: 0 10px;
+    box-shadow: 0px 1px 20px orange
 }
 
 .canvas-editor-container {
-    border-radius: 10px;
-    border: 1px black solid;
+    margin: 0 10px;
+    border-radius: 5px;
+    background-color: gainsboro;
+    /* border: 1px black solid; */
     width: 50%;
+}
+
+.text-input {
+    margin-bottom: 15px;
+}
+
+.edit-btns-container {
+    margin-bottom: 50px;
+}
+
+.edit-btn {
+    width: 30px;
+    height: 30px;
 }
 
 /* About */
@@ -125,10 +173,14 @@ canvas {
 
 /* Footer */
 
-footer {
+.footer {
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
     margin-top: 10px;
     /* border: 1px black solid; */
     background-color: orange;
-    padding: 70px;
+    padding: 20px;
     flex-direction: column;
+
 }
