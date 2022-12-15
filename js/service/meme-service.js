@@ -26,11 +26,22 @@ var gMeme = {
 }
 
 function restartMems() {
-
+    gMeme = {
+        selectedImgId: 0,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: 'Enter Text here',
+                size: 50,
+                align: 'left',
+                color: 'white'
+            }
+        ]
+    }
 }
 
 function setLine() {
-    if (gMeme.lines.length === 1) return false
+    if (gMeme.lines.length === 1) return null
 
     gMeme.selectedLineIdx++
     if (gMeme.lines.length === gMeme.selectedLineIdx) gMeme.selectedLineIdx = 0
@@ -58,8 +69,9 @@ function addLine() {
 }
 
 function removeLine() {
+    if (gMeme.lines.length === 1) return null
+
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
-    if (gMeme.lines.length === 0) return false
     gMeme.selectedLineIdx--
 }
 
@@ -69,6 +81,7 @@ function updateCurrImg(imgId) {
 
 function updateCurrText(txt) {
     const currLine = getSelectedLine()
+    if (!currLine) return
     currLine.txt = txt
 }
 

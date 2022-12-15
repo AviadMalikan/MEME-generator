@@ -1,0 +1,43 @@
+.edit-btn {
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    border-color: #d02718;
+    box-shadow: 0px 4px 0px 0px #8a2a21;
+    text-shadow: 0px 1px 0px #810e05;
+    background: linear-gradient(#c62d1f, #f24437);
+}
+
+.change-line-btn {
+    border-color: rgba(24, 105, 208, 1);
+    box-shadow: 0px 4px 0px 0px rgba(33, 79, 138, 1);
+    text-shadow: 0px 1px 0px rgba(5, 72, 129, 1);
+    background: linear-gradient(rgba(31, 136, 198, 1), rgba(55, 137, 242, 1));
+}
+
+.add-btn {
+    border-color: #18d02a;
+    box-shadow: 0px 4px 0px 0px #218a36;
+    text-shadow: 0px 1px 0px #058127;
+    background: linear-gradient(#19a820, #1fc63e);
+}
+
+.remove-btn:hover {
+    background: linear-gradient(#f24437, #c62d1f);
+}
+
+.add-btn:hover {
+    background: linear-gradient(#1fc63e, #19a820);
+}
+
+.change-line-btn:hover {
+    background: linear-gradient(#37adf2, #1f88c6)
+}

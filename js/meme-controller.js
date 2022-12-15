@@ -62,6 +62,7 @@ function onSetLineTxt(val) {
     if (val === ' ') return
     updateCurrText(val)
     renderMeme()
+    flashMsg('Text Update')
 }
 
 function onAddLine() {
@@ -69,23 +70,28 @@ function onAddLine() {
     document.getElementById('text-input').value = ''
     document.getElementById('text-input').placeholder = 'Enter text here '
     renderMeme()
+    flashMsg('New line added')
 }
 
 function onRemoveLine() {
     const line = removeLine()
     const currLine = getSelectedLine()
-    console.log('line: ', line)
-    
-    if (!line) alert('You Cant Remove More!')
-    document.getElementById('text-input').value = currLine.txt
+
+    if (!line) {
+        flashMsg('You Cant Remove More!')
+    } else {
+        document.getElementById('text-input').value = currLine.txt
+        flashMsg('Line delete')
+    }
     renderMeme()
 }
 
 function onSetLine() {
     const line = setLine()
-    if (!line) alert('You need to add line first!')
+    if (!line) return flashMsg('You need to add line first!')
     const currLine = getSelectedLine()
     document.getElementById('text-input').value = currLine.txt
+    flashMsg('Line Set')
 }
 
 function drawMeme(img) {
@@ -93,7 +99,16 @@ function drawMeme(img) {
     elImg.src = img.url
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
         gMeme.lines.forEach((line, idx) => drawText(line, idx))
     }
+}
+
+
+function flashMsg(msg) {
+    const el = document.querySelector('.user-msg')
+    el.innerText = msg
+    el.classList.add('open')
+    setTimeout(() => {
+        el.classList.remove('open')
+    }, 3000)
 }
