@@ -31,7 +31,7 @@
 
     <section class="search-bar flex alien-center space-between">
         <div class="search">
-            <input type="text" placeholder="Enter search key">
+            <input type="text" class="text-input search-input" placeholder="Enter search key">
         </div>
 
         <ul class="search-tag clean-list flex alien-center space-between">
@@ -44,24 +44,43 @@
     <section class="imgs-container full">
     </section>
 
-    <div class="meme-editor-container flex alien-center hidden">
+    <div class="meme-editor-container flex alien-center hidde full">
         <div class="canvas-container">
             <canvas id="my-canvas" height="400px" width="400px"></canvas>
         </div>
-        <section class="canvas-editor-container">
+        <section class="canvas-editor-container ">
             <h2>Editor</h2>
             <div class="text-editor">
                 <div class="text-input-container">
                     <input type="text" id="text-input" class="text-input" placeholder="Enter Text here"
                         onkeyup="onSetLineTxt(this.value)">
                 </div>
-                <div class="edit-btns-container">
+
+                <div class="main-edit-btns-container">
                     <button class="change-line-btn edit-btn" onclick="onSetLine()"><img
                             src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     <button class="add-btn edit-btn" onclick="onAddLine()"> <img src="icons/add.png" alt="add"></button>
                     <button class="remove-btn edit-btn" onclick="onRemoveLine()"><img src="icons/trash.png"
                             alt="del"></button>
                 </div>
+
+                <div class="edit-btns-container flex">
+                    <input type="color" id="color-input" value="#ffffff" class="txt-color-input edit-btn regular-btn"
+                        onchange="onChangeColor(this.value)">
+                    <button class="edit-btn regular-btn" onclick="onIncreaseFont(5)">
+                        <img src="icons/increase font - icon.png" alt="increase">
+                    </button>
+                    <button class="edit-btn regular-btn" onclick="onDecreaseFont(-5)">
+                        <img src="icons/decrease font - icon.png" alt="decrease">
+                    </button>
+                    <select name="font" id="font-input" class="font-input regular-btn"
+                        onchange="onChangeFont(this.value)">
+                        <option value="impact">Impact</option>
+                        <option value="arial">Arial</option>
+                        <option value="verdana">Verdana</option>
+                    </select>
+                </div>
+
             </div>
         </section>
     </div>

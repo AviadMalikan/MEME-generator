@@ -20,6 +20,7 @@ function renderGallery() {
 
 function restartPage() {
     restartMems()
+    document.querySelector('.txt-color-input').value = "#ffffff"
     document.getElementById('text-input').value = ''
     const elImgContainer = document.querySelector('.imgs-container')
     elImgContainer.style.display = 'grid'

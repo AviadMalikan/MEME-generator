@@ -11,6 +11,16 @@ var gImgs = [
     { id: 6, url: 'img/6.jpg', keywords: ['funny', 'cat'] },
     { id: 7, url: 'img/7.jpg', keywords: ['funny', 'cat'] },
     { id: 8, url: 'img/8.jpg', keywords: ['funny', 'cat'] },
+    { id: 9, url: 'img/9.jpg', keywords: ['funny', 'cat'] },
+    { id: 10, url: 'img/10.jpg', keywords: ['funny', 'cat'] },
+    { id: 11, url: 'img/11.jpg', keywords: ['funny', 'cat'] },
+    { id: 12, url: 'img/12.jpg', keywords: ['funny', 'cat'] },
+    { id: 13, url: 'img/13.jpg', keywords: ['funny', 'cat'] },
+    { id: 14, url: 'img/14.jpg', keywords: ['funny', 'cat'] },
+    { id: 15, url: 'img/15.jpg', keywords: ['funny', 'cat'] },
+    { id: 16, url: 'img/16.jpg', keywords: ['funny', 'cat'] },
+    { id: 17, url: 'img/17.jpg', keywords: ['funny', 'cat'] },
+    { id: 18, url: 'img/18.jpg', keywords: ['funny', 'cat'] },
 ];
 var gMeme = {
     selectedImgId: 0,
@@ -20,7 +30,9 @@ var gMeme = {
             txt: 'Enter Text here',
             size: 50,
             align: 'left',
-            color: 'white'
+            color: '#ffffff',
+            font: 'impact',
+            strokeColor: 'black',
         }
     ]
 }
@@ -34,7 +46,9 @@ function restartMems() {
                 txt: 'Enter Text here',
                 size: 50,
                 align: 'left',
-                color: 'white'
+                color: '#ffffff',
+                font: 'impact',
+                strokeColor: 'black',
             }
         ]
     }
@@ -48,7 +62,6 @@ function setLine() {
     return true
 }
 
-
 function getCurrImg() {
     return getImgById(gMeme.selectedImgId)
 }
@@ -60,10 +73,12 @@ function getImgById(imgId) {
 
 function addLine() {
     gMeme.lines.push({
-        txt: 'Enter Text here!!',
+        txt: 'Enter Text here',
         size: 50,
         align: 'left',
-        color: 'white'
+        color: '#ffffff',
+        font: 'impact',
+        strokeColor: 'black',
     })
     gMeme.selectedLineIdx++
 }
@@ -81,14 +96,36 @@ function updateCurrImg(imgId) {
 
 function updateCurrText(txt) {
     const currLine = getSelectedLine()
-    if (!currLine) return
+    if (!currLine) return null
     currLine.txt = txt
 }
 
-function drawText(line, idx) {
-    // text, size = 35, color = 'white', x = gElCanvas.width / 2, y = 50
+function changeColor(val) {
     const currLine = getSelectedLine()
-    const { txt, size, color } = line
+    currLine.color = val
+}
+function changeFont(val) {
+    const currLine = getSelectedLine()
+    currLine.font = val
+}
+
+function increaseFontSize(num) {
+    const currLine = getSelectedLine()
+    if (currLine.size >= 100) return null
+    currLine.size += num
+    return true
+}
+
+function decreaseFontSize(num) {
+    const currLine = getSelectedLine()
+    if (currLine.size <= 20) return null
+    currLine.size += num
+    return true
+}
+
+function drawText(line, idx) {
+    // const currLine = getSelectedLine()
+    const { txt, size, color, font, strokeColor } = line
     var x = gElCanvas.width / 2
     var y
     switch (idx) {
@@ -103,18 +140,16 @@ function drawText(line, idx) {
             break
     }
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
+    gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = color
 
-    gCtx.font = `400 ${size}px impact`;
+    gCtx.font = `400 ${size}px ${font}`;
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, x, y)
 }
-
-
 
 
 function getSelectedLine() {

@@ -34,7 +34,6 @@ function addListeners() {
     window.addEventListener('resize', () => {
         renderMeme()
         // renderCanvas()
-
     })
 }
 
@@ -90,8 +89,35 @@ function onSetLine() {
     const line = setLine()
     if (!line) return flashMsg('You need to add line first!')
     const currLine = getSelectedLine()
+    document.querySelector('.txt-color-input').value = currLine.color
     document.getElementById('text-input').value = currLine.txt
     flashMsg('Line Set')
+}
+
+function onChangeColor(val) {
+    changeColor(val)
+    renderMeme()
+    flashMsg('Color update')
+}
+
+function onIncreaseFont(num) {
+    const size = increaseFontSize(num)
+    var msg = (!size) ? 'You reach max size' : 'Font size update'
+    renderMeme()
+    flashMsg(msg)
+}
+
+function onDecreaseFont(num) {
+    const size = decreaseFontSize(num)
+    var msg = (!size) ? 'You reach min size' : 'Font size update'
+    renderMeme()
+    flashMsg(msg)
+}
+
+function onChangeFont(val) {
+    changeFont(val)
+    renderMeme()
+    flashMsg('Font update')
 }
 
 function drawMeme(img) {

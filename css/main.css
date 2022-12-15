@@ -54,17 +54,27 @@ img {
 }
 
 .link-nav:hover {
-    box-shadow: inset 0 -7px 0 rgb(255 98 0);
+    box-shadow: inset 0 -7px 0 #ff6200
 }
 
 /* Search Bar */
 
 
 .search-bar {
-    background-color: #fe6e20;
+    background-color: #ffe49f;
     border-radius: 2rem;
-    padding: 20px 80px;
+    padding: 0px 40px;
     margin-bottom: 50px;
+    margin: 0px 80px;
+    border: orange 3px solid;
+}
+
+.search-bar .text-input {
+    border-radius: 2rem;
+    margin: 10px 0;
+    color: black;
+    border: orange 3px solid;
+    background-color: orange;
 }
 
 .search-bar .search-tag li:not(:last-child) {
@@ -74,11 +84,11 @@ img {
 
 /* IMG Container */
 .imgs-container {
-    margin: 50px auto;
+    margin: 80px auto;
     width: 90%;
     display: grid;
     gap: 25px;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .imgs-container img {
@@ -89,10 +99,12 @@ img {
 }
 
 .imgs-container img:hover {
-    /* border: 1px orange solid; */
     cursor: pointer;
     opacity: 100%;
     box-shadow: 0px 1px 20px orange;
+    box-shadow: 0px 1px 20px orange;
+    box-shadow: 0px 1px 20px orange;
+
 }
 
 
@@ -101,6 +113,7 @@ img {
     justify-content: space-between;
     border-radius: 20px;
     height: 50vw;
+    margin: 50px;
     /* width: 100vw; */
     /* background-color: rgb(240, 240, 240); */
 }
@@ -110,25 +123,34 @@ canvas {
     border: 15px solid lightgray;
     border-radius: 5px;
     margin: 0 10px;
-    
     /* box-shadow: 0px 1px 20px orange */
 }
 
 .canvas-editor-container {
     margin: 0 10px;
     border-radius: 5px;
-    background-color: gainsboro;
+    background-color: #f8f8f8;
     /* border: 1px black solid; */
     width: 50%;
 }
 
 /* Editor */
 
-.edit-btns-container {
+.main-edit-btns-container {
     margin-bottom: 50px;
 }
 
-input {
+.edit-btns-container {
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.font-input {
+    border-radius: 10;
+}
+
+/* Inputs */
+.text-input {
     width: 70%;
     padding: 12px 20px;
     margin: 15px 0;
@@ -136,6 +158,10 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.color-input {
+    display: inline;
 }
 
 /* About */
@@ -170,11 +196,20 @@ input {
     color: white;
     bottom: -100px;
     right: 10px;
-    background-color: #111;
+    background-color: black;
     padding: 10px;
 }
 
 .user-msg.open {
     bottom: 10px;
     transition: bottom .5s;
+}
+
+
+@media (min-width:920px) {
+    .imgs-container {
+        /* width: ; */
+        grid-template-columns: repeat(4, 1fr);
+    }
+
 }
