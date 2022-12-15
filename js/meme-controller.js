@@ -18,6 +18,7 @@ function onInitCanvas(imgId) {
 }
 
 function renderMeme() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     const elContainer = document.querySelector('.meme-editor-container')
     gElCanvas.width = elContainer.offsetWidth / 2
     gElCanvas.height = gElCanvas.width
@@ -75,13 +76,15 @@ function onAddLine() {
 function onRemoveLine() {
     const line = removeLine()
     const currLine = getSelectedLine()
-
-    if (!line) {
-        flashMsg('You Cant Remove More!')
-    } else {
-        document.getElementById('text-input').value = currLine.txt
-        flashMsg('Line delete')
-    }
+    var msg = (!line) ? 'You Cant Remove More!' : 'Line deleted'
+    // if (!line) {
+    //     flashMsg('You Cant Remove More!')
+    // } else {
+    //     flashMsg('Line delete')
+    // }
+    flashMsg(msg)
+    document.querySelector('.txt-color-input').value = currLine.color
+    document.getElementById('text-input').value = currLine.txt
     renderMeme()
 }
 
@@ -120,13 +123,31 @@ function onChangeFont(val) {
     flashMsg('Font update')
 }
 
+function onMoveYLine(num) {
+    moveTextOnYLine(num)
+    renderMeme()
+}
+
+function onMoveXLine(num){
+    moveTextOnXLine(num)
+    renderMeme()
+}
+
 function drawMeme(img) {
+    // updateTextPos()
     const elImg = new Image()
     elImg.src = img.url
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        gMeme.lines.forEach((line, idx) => drawText(line, idx))
+        renderText()
     }
+}
+
+function renderText() {
+
+    gMeme.lines.forEach((line, idx) => {
+        drawText(line, idx)
+    })
 }
 
 
@@ -137,4 +158,9 @@ function flashMsg(msg) {
     setTimeout(() => {
         el.classList.remove('open')
     }, 3000)
+}
+
+function downloadCanvas(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
 }

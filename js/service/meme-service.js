@@ -32,7 +32,8 @@ var gMeme = {
             align: 'left',
             color: '#ffffff',
             font: 'impact',
-            strokeColor: 'black',
+            // pos: { x: gElCanvas.width / 2, y: 50 },
+            isDrag: false,
         }
     ]
 }
@@ -48,7 +49,8 @@ function restartMems() {
                 align: 'left',
                 color: '#ffffff',
                 font: 'impact',
-                strokeColor: 'black',
+                // pos: { x: gElCanvas.width / 2, y: 50 },
+                isDrag: false,
             }
         ]
     }
@@ -72,13 +74,15 @@ function getImgById(imgId) {
 }
 
 function addLine() {
+    var y = (gMeme.lines.length < 2) ? gElCanvas.height - 50 : y = gElCanvas.height / 2
     gMeme.lines.push({
         txt: 'Enter Text here',
         size: 50,
         align: 'left',
         color: '#ffffff',
         font: 'impact',
-        strokeColor: 'black',
+        isDrag: false,
+        pos: { x: gElCanvas.width / 2, y },
     })
     gMeme.selectedLineIdx++
 }
@@ -88,6 +92,7 @@ function removeLine() {
 
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx--
+    if (gMeme.selectedLineIdx < 0) gMeme.selectedLineIdx = 0
 }
 
 function updateCurrImg(imgId) {
@@ -111,9 +116,21 @@ function changeFont(val) {
 
 function increaseFontSize(num) {
     const currLine = getSelectedLine()
+
     if (currLine.size >= 100) return null
     currLine.size += num
     return true
+}
+
+function moveTextOnYLine(num) {
+    const currLine = getSelectedLine()
+    currLine.pos.y += num
+}
+
+function moveTextOnXLine(num) {
+    const currLine = getSelectedLine()
+    currLine.pos.x += num
+
 }
 
 function decreaseFontSize(num) {
@@ -124,35 +141,39 @@ function decreaseFontSize(num) {
 }
 
 function drawText(line, idx) {
-    // const currLine = getSelectedLine()
-    const { txt, size, color, font, strokeColor } = line
-    var x = gElCanvas.width / 2
-    var y
-    switch (idx) {
-        case 0:
-            y = 50
-            break
-        case 1:
-            y = gElCanvas.height - size
-            break
-        default:
-            y = gElCanvas.height / 2
-            break
+    const { txt, size, color, font, } = line
+    // console.log('line: ', line)
+    if (!line.pos) {
+        var x = gElCanvas.width / 2
+        var y
+        switch (idx) {
+            case 0:
+                y = 50
+                break
+            case 1:
+                y = gElCanvas.height - size
+                break
+            default:
+                y = gElCanvas.height / 2
+                break
+        }
+        line.pos = { x, y }
     }
+
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = strokeColor
+    gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
 
     gCtx.font = `400 ${size}px ${font}`;
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
-    gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(txt, x, y)
+    gCtx.fillText(txt, line.pos.x, line.pos.y) // Draws (fills) a given text at the given (x, y) position.
+    gCtx.strokeText(txt, line.pos.x, line.pos.y)
 }
 
 
-function getSelectedLine() {
 
+function getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx]
 }

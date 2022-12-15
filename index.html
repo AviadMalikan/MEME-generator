@@ -49,39 +49,62 @@
             <canvas id="my-canvas" height="400px" width="400px"></canvas>
         </div>
         <section class="canvas-editor-container ">
-            <h2>Editor</h2>
-            <div class="text-editor">
-                <div class="text-input-container">
-                    <input type="text" id="text-input" class="text-input" placeholder="Enter Text here"
-                        onkeyup="onSetLineTxt(this.value)">
-                </div>
-
-                <div class="main-edit-btns-container">
-                    <button class="change-line-btn edit-btn" onclick="onSetLine()"><img
-                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                    <button class="add-btn edit-btn" onclick="onAddLine()"> <img src="icons/add.png" alt="add"></button>
-                    <button class="remove-btn edit-btn" onclick="onRemoveLine()"><img src="icons/trash.png"
-                            alt="del"></button>
-                </div>
-
-                <div class="edit-btns-container flex">
-                    <input type="color" id="color-input" value="#ffffff" class="txt-color-input edit-btn regular-btn"
-                        onchange="onChangeColor(this.value)">
-                    <button class="edit-btn regular-btn" onclick="onIncreaseFont(5)">
-                        <img src="icons/increase font - icon.png" alt="increase">
-                    </button>
-                    <button class="edit-btn regular-btn" onclick="onDecreaseFont(-5)">
-                        <img src="icons/decrease font - icon.png" alt="decrease">
-                    </button>
-                    <select name="font" id="font-input" class="font-input regular-btn"
-                        onchange="onChangeFont(this.value)">
-                        <option value="impact">Impact</option>
-                        <option value="arial">Arial</option>
-                        <option value="verdana">Verdana</option>
-                    </select>
-                </div>
-
+            <h2>Lets edit 🔨</h2>
+            <!-- <div class="text-editor"> -->
+            <div class="text-input-container">
+                <input type="text" id="text-input" class="text-input" placeholder="Enter Text here"
+                    onkeyup="onSetLineTxt(this.value)">
             </div>
+
+            <div class="main-edit-btns-container">
+                <button class="change-line-btn edit-btn" onclick="onSetLine()"><img
+                        src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button class="add-btn edit-btn" onclick="onAddLine()"> <img src="icons/add.png" alt="add"></button>
+                <button class="remove-btn edit-btn" onclick="onRemoveLine()"><img src="icons/trash.png"
+                        alt="del"></button>
+            </div>
+            <div class="move-btn-container">
+                <button class="regular-btn edit-btn" onclick="onMoveXLine(-7)">←</button>
+                <button class="regular-btn edit-btn" onclick="onMoveYLine(-10)">↑</button>
+                <button class="regular-btn edit-btn" onclick="onMoveYLine(10)">↓</button>
+                <button class="regular-btn edit-btn" onclick="onMoveXLine(7)">→</button>
+            </div>
+            <div class="edit-btns-container">
+                <button class="edit-btn regular-btn" onclick="onMargin">
+                    <img src="icons/align-to-left.png" alt="">
+                </button>
+                <button class="edit-btn regular-btn">
+                    <img src="icons/center-text-alignment.png" alt="">
+                </button>
+                <button class="edit-btn regular-btn">
+                    <img src="icons/align-to-right.png" alt="">
+                </button>
+            </div>
+
+            <div class="edit-btns-container flex">
+                <button class="edit-btn regular-btn" onclick="onIncreaseFont(5)">
+                    <img src="icons/increase font - icon.png" alt="increase">
+                </button>
+                <button class="edit-btn regular-btn" onclick="onDecreaseFont(-5)">
+                    <img src="icons/decrease font - icon.png" alt="decrease">
+                </button>
+                <input type="color" id="color-input" value="#ffffff" class="txt-color-input edit-btn regular-btn"
+                    onchange="onChangeColor(this.value)">
+                <select name="font" id="font-input" class="font-input regular-btn" onchange="onChangeFont(this.value)">
+                    <option value="impact">Impact</option>
+                    <option value="arial">Arial</option>
+                    <option value="verdana">Verdana</option>
+                </select>
+            </div>
+
+            <div class="save-btns-container">
+                <button class="edit-btn regular-btn export-btn">
+                    <a href="#" onclick="downloadCanvas(this)" download="my-meme">Save</a>
+                </button>
+                <button class="edit-btn regular-btn export-btn"> Share </button>
+            </div>
+
+            <!-- </div> -->
         </section>
     </div>
 
@@ -103,8 +126,8 @@
     <div class="user-msg"></div>
 
     <script src="js/service/utils-service.js"></script>
-    <script src="js/service/gallery-service.js"></script>
     <script src="js/service/meme-service.js"></script>
+    <script src="js/service/gallery-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
