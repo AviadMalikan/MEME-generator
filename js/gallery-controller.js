@@ -19,12 +19,15 @@ function renderGallery() {
 }
 
 function restartPage() {
-    restartMems()
+    // window.location.reload()
+    // restartMems()
+
     document.querySelector('.txt-color-input').value = "#ffffff"
     document.getElementById('text-input').value = ''
-    const elImgContainer = document.querySelector('.imgs-container')
-    elImgContainer.style.display = 'grid'
 
-    const elMemeEditor = document.querySelector('.meme-editor-container')
-    elMemeEditor.style.display = 'none'
+    document.querySelector('.imgs-container').style.display = 'grid'
+    document.querySelector('.about-container').hidden = false
+    document.querySelector('.search-bar').style.display = 'flex'
+    document.querySelector('.meme-editor-container').style.display = 'none'
+
 }

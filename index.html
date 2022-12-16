@@ -19,9 +19,9 @@
 
             <nav class="main-nav">
                 <ul class="links-navs clean-list flex">
-                    <li><a href="#" class="link-nav flex alien-center" onclick="onInit()">gallery</a></li>
+                    <li><a href="#gallery" class="link-nav flex alien-center" onclick="onInit()">gallery</a></li>
                     <li><a href="#" class="link-nav flex alien-center">saved</a></li>
-                    <li><a href="#" class="link-nav flex alien-center">about</a></li>
+                    <li><a href="#about" class="link-nav flex alien-center">about</a></li>
                 </ul>
             </nav>
 
@@ -41,10 +41,10 @@
         </ul>
     </section>
 
-    <section class="imgs-container full">
+    <section class="imgs-container full" id="gallery">
     </section>
 
-    <div class="meme-editor-container flex alien-center hidde full">
+    <div class="meme-editor-container flex alien-center full">
         <div class="canvas-container">
             <canvas id="my-canvas" height="400px" width="400px"></canvas>
         </div>
@@ -70,14 +70,14 @@
                 <button class="regular-btn edit-btn" onclick="onMoveXLine(7)">→</button>
             </div>
             <div class="edit-btns-container">
-                <button class="edit-btn regular-btn" onclick="onMargin">
-                    <img src="icons/align-to-left.png" alt="">
+                <button class="edit-btn regular-btn" onclick="onAlienLeft()">
+                    <img src="icons/align-to-left.png" alt="alien-left">
                 </button>
-                <button class="edit-btn regular-btn">
-                    <img src="icons/center-text-alignment.png" alt="">
+                <button class="edit-btn regular-btn" onclick="onAlienCenter()">
+                    <img src="icons/center-text-alignment.png" alt="alien-center">
                 </button>
-                <button class="edit-btn regular-btn">
-                    <img src="icons/align-to-right.png" alt="">
+                <button class="edit-btn regular-btn" onclick="onAlienRight()"">
+                    <img src=" icons/align-to-right.png" alt="align-right">
                 </button>
             </div>
 
@@ -108,15 +108,22 @@
         </section>
     </div>
 
-    <section class="about" hidden>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis eum. Autem asperiores iure impedit
-        voluptate magnam in, iusto officia dolores sapiente, debitis nulla. Ipsa voluptates dolorum sapiente possimus
-        recusandae.
-        <ul class="social-media clean-list flex  ">
-            <li> <a href="">Facebook</a></li>
-            <li> <a href="">Twitter</a></li>
-            <li> <a href="">Linkedin</a></li>
-        </ul>
+    <section class="about-container" id="about">
+        <section class="about-img">
+            <img src="img/15.jpg" alt="">
+        </section>
+        <section class="about-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis eum. Autem asperiores iure
+            impedit
+            voluptate magnam in, iusto officia dolores sapiente, debitis nulla. Ipsa voluptates dolorum sapiente
+            possimus
+            recusandae.
+            <ul class="social-media clean-list flex  ">
+                <li> <a href="">Facebook</a></li>
+                <li> <a href="">Twitter</a></li>
+                <li> <a href="">Linkedin</a></li>
+            </ul>
+        </section>
     </section>
 
     <footer class="footer full">

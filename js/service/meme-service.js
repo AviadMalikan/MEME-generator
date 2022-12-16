@@ -29,7 +29,7 @@ var gMeme = {
         {
             txt: 'Enter Text here',
             size: 50,
-            align: 'left',
+            align: 'center',
             color: '#ffffff',
             font: 'impact',
             // pos: { x: gElCanvas.width / 2, y: 50 },
@@ -46,7 +46,7 @@ function restartMems() {
             {
                 txt: 'Enter Text here',
                 size: 50,
-                align: 'left',
+                align: 'center',
                 color: '#ffffff',
                 font: 'impact',
                 // pos: { x: gElCanvas.width / 2, y: 50 },
@@ -78,7 +78,7 @@ function addLine() {
     gMeme.lines.push({
         txt: 'Enter Text here',
         size: 50,
-        align: 'left',
+        align: 'center',
         color: '#ffffff',
         font: 'impact',
         isDrag: false,
@@ -130,7 +130,23 @@ function moveTextOnYLine(num) {
 function moveTextOnXLine(num) {
     const currLine = getSelectedLine()
     currLine.pos.x += num
+}
 
+function alienTextCenter() {
+    const currLine = getSelectedLine()
+    currLine.align = 'center'
+    currLine.pos.x = gElCanvas.width / 2
+}
+
+function alienTextLeft() {
+    const currLine = getSelectedLine()
+    currLine.align = 'left'
+    currLine.pos.x = 0
+}
+function alienTextRight() {
+    const currLine = getSelectedLine()
+    currLine.align = 'right'
+    currLine.pos.x = gElCanvas.width
 }
 
 function decreaseFontSize(num) {
@@ -141,7 +157,7 @@ function decreaseFontSize(num) {
 }
 
 function drawText(line, idx) {
-    const { txt, size, color, font, } = line
+    const { txt, size, color, font, align } = line
     // console.log('line: ', line)
     if (!line.pos) {
         var x = gElCanvas.width / 2
@@ -163,9 +179,8 @@ function drawText(line, idx) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
-
     gCtx.font = `400 ${size}px ${font}`;
-    gCtx.textAlign = 'center'
+    gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(txt, line.pos.x, line.pos.y) // Draws (fills) a given text at the given (x, y) position.
