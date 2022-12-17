@@ -4,3 +4,7 @@
 function getImgs() {
     return gImgs
 }
+
+function setFilterBy(filterBy){
+
+}

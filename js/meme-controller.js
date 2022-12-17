@@ -7,7 +7,7 @@ function onInitCanvas(imgId) {
     const elImgContainer = document.querySelector('.imgs-container')
     elImgContainer.style.display = 'none'
 
-    document.querySelector('.about').hidden = true
+    document.querySelector('.about-container').style.display = 'none'
     document.querySelector('.search-bar').style.display = 'none'
 
     const elMemeSection = document.querySelector('.meme-editor-container')
