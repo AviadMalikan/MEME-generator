@@ -33,8 +33,14 @@ function restartPage() {
 function onSetFilterBy(filterBy, el) {
     var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
     var currentSize = parseFloat(style);
+    setFilterBy()
+    if (currentSize >= 30) return
     el.style.fontSize = (currentSize + 1) + 'px';
-
-
-    setFilterBy( )
+    
 }
+
+
+function onToggleNav() {
+    document.body.classList.toggle('menu-open')
+}
+

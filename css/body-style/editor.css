@@ -1,0 +1,100 @@
+
+/* Editor-container */
+
+/* Canvas */
+.meme-editor-container {
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.canvas-container {
+    width: 100%;
+    flex: 1;
+}
+
+canvas {
+    display: block;
+    border: 10px solid #f8f8f8;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.canvas-editor-container {
+    flex: 1;
+    margin: 0 10px;
+    padding: 15px 0;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    width: 100%;
+}
+
+/* Editor */
+
+.main-edit-btns-container {
+    margin-bottom: 30px;
+}
+
+.move-btn-container {
+    margin: 30px;
+}
+
+.edit-btns-container {
+    margin-bottom: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.save-btns-container {
+    margin: 30px 0;
+}
+
+.save-btns-container a {
+    color: black;
+    text-decoration: none;
+}
+
+.font-selector {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.75rem;
+    width: 5rem;
+}
+
+.font-selector option {
+    font-size: 0.75rem;
+    border-radius: 100px;
+    background-color: rgb(235, 176, 26)
+}
+
+/* Inputs  */
+.text-input {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.color-input {
+    display: inline;
+}
+
+@media (min-width:740px) {
+
+    .canvas-editor-container {
+        width: 50%;
+    }
+
+    .meme-editor-container {
+        flex-direction: row;
+        margin: 50px;
+    }
+
+    .canvas-container {
+        width: auto;
+    }}

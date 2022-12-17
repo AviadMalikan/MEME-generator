@@ -1,0 +1,21 @@
+/* Footer */
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    margin-top: 10px;
+    /* border: 1px black solid; */
+    background-color: var(--clr1);
+    padding: 20px;
+    flex-direction: column;
+}
+
+.footer small {
+    font-size: 0.5rem;
+
+}
+
+.footer .logo {
+    margin: 10px auto;
+    width: 150px;
+}

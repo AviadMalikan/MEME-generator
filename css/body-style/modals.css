@@ -1,0 +1,25 @@
+
+/* Modals */
+.main-screen {
+    position: fixed;
+    cursor: pointer;
+    inset: 0;
+    background-color: #00000072;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: bottom .3s;
+}
+
+.user-msg {
+    position: fixed;
+    color: white;
+    bottom: -100px;
+    right: 10px;
+    background-color: #000000;
+    padding: 10px;
+}
+
+.user-msg.open {
+    bottom: 10px;
+}

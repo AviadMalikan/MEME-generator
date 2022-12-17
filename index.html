@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultimate MEME generator</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="icons/105262-200.png" type="image/x-icon">
 </head>
 
 <body class="main-layout " onload="onInit()">
+    <div class="main-screen full" onclick="onToggleNav()"></div>
     <header class="main-header full">
         <div class="header-container flex alien-center space-between ">
 
@@ -25,110 +27,116 @@
                 </ul>
             </nav>
 
-            <button class="menu-toggle-btn" hidden>☰</button>
+            <button class="menu-toggle-btn" onclick="onToggleNav()">☰</button>
         </div>
     </header>
+    <main class="main-content">
 
-    <section class="search-bar flex alien-center space-between">
-        <div class="search">
-            <input type="text" class="text-input search-input" placeholder="Enter search key">
-        </div>
-
-        <ul class="search-tag clean-list flex alien-center space-between">
-            <li class="flex alien-center tag" onclick="onSetFilterBy('celebrity',this)">celebrity</li>
-            <li class="flex alien-center tag" onclick="onSetFilterBy('drinks',this)">drinks</li>
-            <li class="flex alien-center tag" onclick="onSetFilterBy('books',this)">books</li>
-        </ul>
-    </section>
-
-    <section class="imgs-container full" id="gallery">
-    </section>
-
-    <div class="meme-editor-container flex alien-center full">
-        <div class="canvas-container">
-            <canvas id="my-canvas" height="400px" width="400px"></canvas>
-        </div>
-        <section class="canvas-editor-container ">
-            <h2>Lets edit 🔨</h2>
-            <!-- <div class="text-editor"> -->
-            <div class="text-input-container">
-                <input type="text" id="text-input" class="text-input" placeholder="Enter Text here"
-                    onkeyup="onSetLineTxt(this.value)">
+        <section class="search-bar flex alien-center space-between">
+            <div class="search">
+                <input type="text" class="text-input search-input" placeholder="Enter search key">
             </div>
 
-            <div class="main-edit-btns-container">
-                <button class="change-line-btn edit-btn" onclick="onSetLine()"><img
-                        src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                <button class="add-btn edit-btn" onclick="onAddLine()"> <img src="icons/add.png" alt="add"></button>
-                <button class="remove-btn edit-btn" onclick="onRemoveLine()"><img src="icons/trash.png"
-                        alt="del"></button>
-            </div>
-            <div class="move-btn-container">
-                <button class="regular-btn edit-btn" onclick="onMoveXLine(-7)">←</button>
-                <button class="regular-btn edit-btn" onclick="onMoveYLine(-10)">↑</button>
-                <button class="regular-btn edit-btn" onclick="onMoveYLine(10)">↓</button>
-                <button class="regular-btn edit-btn" onclick="onMoveXLine(7)">→</button>
-            </div>
-            <div class="edit-btns-container">
-                <button class="edit-btn regular-btn" onclick="onAlienLeft()">
-                    <img src="icons/align-to-left.png" alt="alien-left">
-                </button>
-                <button class="edit-btn regular-btn" onclick="onAlienCenter()">
-                    <img src="icons/center-text-alignment.png" alt="alien-center">
-                </button>
-                <button class="edit-btn regular-btn" onclick="onAlienRight()"">
-                    <img src=" icons/align-to-right.png" alt="align-right">
-                </button>
-            </div>
-
-            <div class="edit-btns-container flex">
-                <button class="edit-btn regular-btn" onclick="onIncreaseFont(5)">
-                    <img src="icons/increase font - icon.png" alt="increase">
-                </button>
-                <button class="edit-btn regular-btn" onclick="onDecreaseFont(-5)">
-                    <img src="icons/decrease font - icon.png" alt="decrease">
-                </button>
-                <input type="color" id="color-input" value="#ffffff" class="txt-color-input edit-btn regular-btn"
-                    onchange="onChangeColor(this.value)">
-                <select name="font" id="font-input" class="font-selector regular-btn"
-                    onchange="onChangeFont(this.value)">
-                    <option value="impact">Impact</option>
-                    <option value="arial">Arial</option>
-                    <option value="verdana">Verdana</option>
-                </select>
-            </div>
-
-            <div class="save-btns-container">
-                <button class="edit-btn regular-btn export-btn">
-                    <a href="#" onclick="downloadCanvas(this)" download="my-meme">Save</a>
-                </button>
-                <button class="edit-btn regular-btn export-btn"> Share </button>
-            </div>
-
-            <!-- </div> -->
-        </section>
-    </div>
-
-    <section class="about-container" id="about">
-        <section class="about-img">
-            <img src="img/15.jpg" alt="">
-        </section>
-        <section class="about-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis eum. Autem asperiores iure
-            impedit
-            voluptate magnam in, iusto officia dolores sapiente, debitis nulla. Ipsa voluptates dolorum sapiente
-            possimus
-            recusandae.
-            <ul class="social-media clean-list flex  ">
-                <li> <a href="">Facebook</a></li>
-                <li> <a href="">Twitter</a></li>
-                <li> <a href="">Linkedin</a></li>
+            <ul class="search-tag clean-list flex alien-center space-between">
+                <li class="flex alien-center tag" onclick="onSetFilterBy('celebrity',this)">celebrity</li>
+                <li class="flex alien-center tag" onclick="onSetFilterBy('animals',this)">animals</li>
+                <li class="flex alien-center tag" onclick="onSetFilterBy('movie',this)">movie</li>
+                <li class="flex alien-center tag" onclick="onSetFilterBy('babies',this)">babies</li>
             </ul>
         </section>
-    </section>
 
-    <footer class="footer full">
-        <small>All Rights Reserved</small>
+        <section class="imgs-container full" id="gallery">
+        </section>
+
+        <div class="meme-editor-container flex alien-center full">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="400px" width="400px"></canvas>
+            </div>
+            <section class="canvas-editor-container ">
+                <h2>Lets edit 🔨</h2>
+                <!-- <div class="text-editor"> -->
+                <div class="text-input-container">
+                    <input type="text" id="text-input" class="text-input" placeholder="Enter Text here"
+                        onkeyup="onSetLineTxt(this.value)">
+                </div>
+
+                <div class="main-edit-btns-container">
+                    <button class="change-line-btn edit-btn" onclick="onSetLine()"><img
+                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="add-btn edit-btn" onclick="onAddLine()"> <img src="icons/add.png" alt="add"></button>
+                    <button class="remove-btn edit-btn" onclick="onRemoveLine()"><img src="icons/trash.png"
+                            alt="del"></button>
+                </div>
+                <div class="move-btn-container">
+                    <button class="regular-btn edit-btn" onclick="onMoveXLine(-7)">←</button>
+                    <button class="regular-btn edit-btn" onclick="onMoveYLine(-10)">↑</button>
+                    <button class="regular-btn edit-btn" onclick="onMoveYLine(10)">↓</button>
+                    <button class="regular-btn edit-btn" onclick="onMoveXLine(7)">→</button>
+                </div>
+                <div class="edit-btns-container">
+                    <button class="edit-btn regular-btn" onclick="onAlienLeft()">
+                        <img src="icons/align-to-left.png" alt="alien-left">
+                    </button>
+                    <button class="edit-btn regular-btn" onclick="onAlienCenter()">
+                        <img src="icons/center-text-alignment.png" alt="alien-center">
+                    </button>
+                    <button class="edit-btn regular-btn" onclick="onAlienRight()"">
+                    <img src=" icons/align-to-right.png" alt="align-right">
+                    </button>
+                </div>
+
+                <div class="edit-btns-container flex">
+                    <button class="edit-btn regular-btn" onclick="onIncreaseFont(5)">
+                        <img src="icons/increase font - icon.png" alt="increase">
+                    </button>
+                    <button class="edit-btn regular-btn" onclick="onDecreaseFont(-5)">
+                        <img src="icons/decrease font - icon.png" alt="decrease">
+                    </button>
+                    <input type="color" id="color-input" value="#ffffff" class="txt-color-input edit-btn regular-btn"
+                        onchange="onChangeColor(this.value)">
+                    <select name="font" id="font-input" class="font-selector regular-btn"
+                        onchange="onChangeFont(this.value)">
+                        <option value="impact">Impact</option>
+                        <option value="arial">Arial</option>
+                        <option value="verdana">Verdana</option>
+                    </select>
+                </div>
+
+                <div class="save-btns-container">
+                    <button class="edit-btn regular-btn export-btn">
+                        <a href="#" onclick="downloadCanvas(this)" download="my-meme">Save</a>
+                    </button>
+                    <button class="edit-btn regular-btn export-btn"> Share </button>
+                </div>
+
+                <!-- </div> -->
+            </section>
+        </div>
+
+        <section class="about-container" id="about">
+            <section class="about-img">
+                <img src="img/my-pic.png" alt="">
+            </section>
+            <section class="about-text">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis eum. Autem asperiores iure
+                impedit
+                voluptate magnam in, iusto officia dolores sapiente, debitis nulla. Ipsa voluptates dolorum sapiente
+                possimus
+                recusandae.
+                <ul class="social-media clean-list flex  ">
+                    <li> <a href="https://www.facebook.com/aviad30100/" class="fa facebook"></a></li>
+                    <li> <a href="https://github.com/AviadMalikan" class="fa github"></a></li>
+                    <li> <a href="https://il.linkedin.com/in/aviad-malikan-172378247" class="fa linkedin"></a></li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer full flex">
+        <section class="logo"><a href="#">
+                <img src="img/LOGO.png" alt="MemeMaker!" onclick="onInit()"></a>
+        </section>
+        <small>All Rights Reserved ©</small>
     </footer>
 
     <div class="user-msg"></div>

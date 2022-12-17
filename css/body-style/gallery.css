@@ -1,0 +1,35 @@
+/* IMG Container */
+.imgs-container {
+    margin: 50px auto;
+    width: 90%;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.imgs-container img {
+    border-radius: 2PX;
+    transition: opacity .3s;
+    border: 0px orange solid;
+    opacity: 80%;
+}
+
+.imgs-container img:hover {
+    cursor: pointer;
+    opacity: 100%;
+    outline: 5px var(--clr5) solid;
+}
+
+
+
+@media (min-width:740px) {
+    .imgs-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width:920px) {
+    .imgs-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
