@@ -20,6 +20,7 @@ function onInitCanvas(imgId) {
     addListeners()
 }
 
+
 function renderMeme() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     const elContainer = document.querySelector('.meme-editor-container')

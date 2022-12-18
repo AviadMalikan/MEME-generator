@@ -16,12 +16,18 @@
 }
 
 
-.search-bar .search-tag li:not(:last-child) {
-    margin-inline-end: 10px;
+.search-bar .search-tags li:not(:last-child) {
+    margin-inline-end: 15px;
     border-collapse: collapse;
 }
 
-.search-bar .search-tags {
+.search-bar .search-tags li:last-child {
+    border-inline-start: 1px black solid;
+    padding-inline-start: 15px;
+    border-collapse: collapse;
+}
+
+.search-bar .search-tags  {
     text-transform: capitalize;
 }
 
@@ -37,6 +43,9 @@
     cursor: pointer;
 }
 
+.tag-all{
+    font-size: 1rem;
+}
 @media (min-width:740px) {
     .search-bar {
         flex-direction: row;

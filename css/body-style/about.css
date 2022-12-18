@@ -27,6 +27,7 @@
 }
 
 .social-media a {
+    transition: .8s;
     margin: 0 5px;
     display: flex;
     width: 40px;

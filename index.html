@@ -16,12 +16,12 @@
         <div class="header-container flex alien-center space-between ">
 
             <section class="logo"><a href="#">
-                    <img src="img/LOGO.png" alt="MemeMaker!" onclick="onInit()"></a>
+                    <img src="img/LOGO.png" alt="MemeMaker!" onclick="onRestartPage()"></a>
             </section>
 
             <nav class="main-nav">
                 <ul class="links-navs clean-list flex">
-                    <li><a href="#gallery" class="link-nav flex alien-center" onclick="onInit()">gallery</a></li>
+                    <li><a href="#gallery" class="link-nav flex alien-center" onclick="onRestartPage()">gallery</a></li>
                     <li><a href="#" class="link-nav flex alien-center">saved</a></li>
                     <li><a href="#about" class="link-nav flex alien-center">about</a></li>
                 </ul>
@@ -34,14 +34,16 @@
 
         <section class="search-bar flex alien-center space-between">
             <div class="search">
-                <input type="text" class="text-input search-input" placeholder="Enter search key">
+                <input type="text" class="text-input search-input" placeholder="Enter search key" onkeyup="onSetFilterBy(this.value)">
             </div>
 
-            <ul class="search-tag clean-list flex alien-center space-between">
+            <ul class="search-tags clean-list flex alien-center space-between">
                 <li class="flex alien-center tag" onclick="onSetFilterBy('celebrity',this)">celebrity</li>
                 <li class="flex alien-center tag" onclick="onSetFilterBy('animals',this)">animals</li>
                 <li class="flex alien-center tag" onclick="onSetFilterBy('movie',this)">movie</li>
-                <li class="flex alien-center tag" onclick="onSetFilterBy('babies',this)">babies</li>
+                <li class="flex alien-center tag" onclick="onSetFilterBy('baby',this)">baby</li>
+                <li class="flex alien-center tag" onclick="onSetFilterBy('smile',this)">smile</li>
+                <li class="flex alien-center tag tag-all" onclick="onSetFilterBy('')">All</li>
             </ul>
         </section>
 

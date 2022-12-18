@@ -10,25 +10,15 @@
 
 :root {
     /* pallete */
-    /* header color */
     --clr0: #292929;
-    /* brand color */
     --clr1: #fb9623;
-    /* paragraph color */
     --clr2: #fe6e20;
-    /* card title color */
     --clr3: #ffe49f;
-    /* white color */
     --clr4: #fe6e20;
-    /* border color  */
     --clr5: #e1e0e0;
-    /* card border color */
     --clr6: #c2c2c2;
-    /* a footer color */
     ---clr7: #818181;
-    /* footer bg */
     ---clr8: #f8f8f8;
-    /* footer CR */
     ---clr9: #a6a6a6;
 }
 
