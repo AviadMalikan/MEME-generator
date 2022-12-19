@@ -1,12 +1,12 @@
-@import "/css/button.css";
-@import "/css/helpers.css";
-@import "/css/body-style/header.css";
-@import "/css/body-style/search.css";
-@import "/css/body-style/gallery.css";
-@import "/css/body-style/editor.css";
-@import "/css/body-style/about.css";
-@import "/css/body-style/footer.css";
-@import "/css/body-style/modals.css";
+@import "css/button.css";
+@import "css/helpers.css";
+@import "css/body-style/header.css";
+@import "css/body-style/search.css";
+@import "css/body-style/gallery.css";
+@import "css/body-style/editor.css";
+@import "css/body-style/about.css";
+@import "css/body-style/footer.css";
+@import "css/body-style/modals.css";
 
 :root {
     /* pallete */
